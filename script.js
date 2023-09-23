@@ -2,9 +2,11 @@ const gridLayout = document.querySelector(".gridLayout");
 const slider = document.getElementById("slider");
 const sliderValueDisplay = document.getElementById("sliderValue");
 const colorPicker = document.querySelector(".color-picker");
+const rainbowModeBtn = document.querySelector(".rainbowMode-btn");
 
 // setting wheh a buttons is pressed
 let colorModeOn = true;
+let rainbowModeOn = false;
 
 const createGrids = (numOfGrids) => {
   let grid;
@@ -31,11 +33,27 @@ const removeGrids = () => {
   }
 };
 
+const generateRainbowColor = () => {
+  rainbowModeOn = true;
+  colorModeOn = false;
+
+  return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
+    Math.random() * 256
+  )}, ${Math.floor(Math.random() * 256)})`;
+};
+
 const applyColor = (event) => {
   let grid = event.target;
-  if (grid.style.background === "" && colorModeOn) {
+  if (grid.style.background === "" && rainbowModeOn != true && colorModeOn) {
     console.log("add new color");
     grid.style.background = colorPicker.value;
+  } else if (
+    rainbowModeOn &&
+    grid.style.background === "" &&
+    colorModeOn != true
+  ) {
+    console.log("add rainbow color");
+    grid.style.background = generateRainbowColor();
   }
 };
 
@@ -49,3 +67,4 @@ slider.addEventListener("input", () => {
 });
 
 gridLayout.addEventListener("mouseover", applyColor);
+rainbowModeBtn.addEventListener("click", generateRainbowColor);
