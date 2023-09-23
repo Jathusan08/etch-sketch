@@ -4,10 +4,12 @@ const sliderValueDisplay = document.getElementById("sliderValue");
 const colorPicker = document.querySelector(".color-picker");
 const rainbowModeBtn = document.querySelector(".rainbowMode-btn");
 const clearBtn = document.querySelector(".clear-btn");
+const erarserBtn = document.querySelector(".eraser-btn");
 
 // setting wheh a buttons is pressed
 let colorModeOn = true;
 let rainbowModeOn = false;
+let eraser = false;
 
 const createGrids = (numOfGrids) => {
   let grid;
@@ -43,7 +45,7 @@ const clearGridLayout = () => {
 const generateRainbowColor = () => {
   rainbowModeOn = true;
   colorModeOn = false;
-
+  eraser = false;
   return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
     Math.random() * 256
   )}, ${Math.floor(Math.random() * 256)})`;
@@ -61,6 +63,8 @@ const applyColor = (event) => {
   ) {
     console.log("add rainbow color");
     grid.style.background = generateRainbowColor();
+  } else if (eraser && grid.style.background != "") {
+    grid.style.background = "";
   }
 };
 
@@ -78,6 +82,13 @@ rainbowModeBtn.addEventListener("click", generateRainbowColor);
 colorPicker.addEventListener("click", () => {
   colorModeOn = true;
   rainbowModeOn = false;
+  eraser = false;
 });
 
 clearBtn.addEventListener("click", clearGridLayout);
+
+erarserBtn.addEventListener("click", () => {
+  eraser = true;
+  rainbowModeOn = false;
+  colorModeOn = false;
+});
