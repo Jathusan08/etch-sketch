@@ -3,6 +3,7 @@ const slider = document.getElementById("slider");
 const sliderValueDisplay = document.getElementById("sliderValue");
 const colorPicker = document.querySelector(".color-picker");
 const rainbowModeBtn = document.querySelector(".rainbowMode-btn");
+const clearBtn = document.querySelector(".clear-btn");
 
 // setting wheh a buttons is pressed
 let colorModeOn = true;
@@ -31,6 +32,12 @@ const removeGrids = () => {
   while (gridLayout.hasChildNodes()) {
     gridLayout.removeChild(gridLayout.firstChild);
   }
+};
+
+const clearGridLayout = () => {
+  document.querySelectorAll(".grid").forEach((grid) => {
+    grid.style.background = "";
+  });
 };
 
 const generateRainbowColor = () => {
@@ -72,3 +79,5 @@ colorPicker.addEventListener("click", () => {
   colorModeOn = true;
   rainbowModeOn = false;
 });
+
+clearBtn.addEventListener("click", clearGridLayout);
