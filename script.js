@@ -1,4 +1,6 @@
 const gridLayout = document.querySelector(".gridLayout");
+const slider = document.getElementById("slider");
+const sliderValueDisplay = document.getElementById("sliderValue");
 
 const createGrids = (numOfGrids) => {
   let grid;
@@ -19,4 +21,17 @@ const createGrids = (numOfGrids) => {
   }
 };
 
+const removeGrids = () => {
+  while (gridLayout.hasChildNodes()) {
+    gridLayout.removeChild(gridLayout.firstChild);
+  }
+};
+
 createGrids(5);
+
+slider.addEventListener("input", () => {
+  const sliderValue = slider.value;
+  sliderValueDisplay.textContent = `${sliderValue} x ${sliderValue}`;
+  removeGrids();
+  createGrids(sliderValue);
+});
