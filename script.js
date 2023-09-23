@@ -1,6 +1,10 @@
 const gridLayout = document.querySelector(".gridLayout");
 const slider = document.getElementById("slider");
 const sliderValueDisplay = document.getElementById("sliderValue");
+const colorPicker = document.querySelector(".color-picker");
+
+// setting wheh a buttons is pressed
+let colorModeOn = true;
 
 const createGrids = (numOfGrids) => {
   let grid;
@@ -27,6 +31,14 @@ const removeGrids = () => {
   }
 };
 
+const applyColor = (event) => {
+  let grid = event.target;
+  if (grid.style.background === "" && colorModeOn) {
+    console.log("add new color");
+    grid.style.background = colorPicker.value;
+  }
+};
+
 createGrids(5);
 
 slider.addEventListener("input", () => {
@@ -35,3 +47,5 @@ slider.addEventListener("input", () => {
   removeGrids();
   createGrids(sliderValue);
 });
+
+gridLayout.addEventListener("mouseover", applyColor);
