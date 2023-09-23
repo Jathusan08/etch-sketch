@@ -68,3 +68,7 @@ slider.addEventListener("input", () => {
 
 gridLayout.addEventListener("mouseover", applyColor);
 rainbowModeBtn.addEventListener("click", generateRainbowColor);
+colorPicker.addEventListener("click", () => {
+  colorModeOn = true;
+  rainbowModeOn = false;
+});
