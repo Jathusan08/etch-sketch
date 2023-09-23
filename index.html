@@ -7,5 +7,44 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Etch-a-Sketch</h1>
+      </header>
+      <main class="main-container">
+        <div class="buttonLayout">
+          <input
+            class="color-picker"
+            type="color"
+            name="head"
+            value="#e66465"
+          />
+          <!-- <button class="color-btn">Color Mode</button> -->
+          <button class="rainbowMode-btn">Rainbow Mode</button>
+          <button class="eraser-btn">Eraser</button>
+          <button class="clear-btn">Clear</button>
+
+          <div class="slider-component">
+            <div id="sliderValue">5x5</div>
+            <input
+              type="range"
+              id="slider"
+              name="slider"
+              min="1"
+              max="100"
+              value="5"
+            />
+          </div>
+        </div>
+        <div class="gridLayout"></div>
+      </main>
+      <footer>
+        <h3>
+          Copyright © 2023
+          <a href="https://github.com/Jathusan08/etch-sketch">Jathusan08</a>
+        </h3>
+      </footer>
+    </div>
+  </body>
 </html>
