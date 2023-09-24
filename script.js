@@ -35,13 +35,13 @@ const createGrids = (numOfGrids) => {
 };
 
 const rgbFormat = (grid) => {
-  console.log(grid.style.backgroundColor);
+ // console.log(grid.style.backgroundColor);
   let rgbColor = grid.style.backgroundColor;
   let rgbArr = grid.style.backgroundColor
     .substring(4, rgbColor.length - 1)
     .replace(/ /g, "")
     .split(",");
-  console.log(rgbArr);
+//  console.log(rgbArr);
 
   let R = Number(rgbArr[0]) / 10;
   let G = Number(rgbArr[1] / 10);
@@ -106,7 +106,7 @@ const darkMode = (grid) => {
   gridColorArr[
     Number(grid.id)
   ] = `rgb(${divideColorByR}, ${divideColorByG}, ${divideColorByB}, ${countIteration})`;
-  console.log(`rgb(${R}, ${G}, ${B})`);
+ // console.log(`rgb(${R}, ${G}, ${B})`);
   return `rgb(${R}, ${G}, ${B})`;
 };
 
@@ -134,16 +134,16 @@ const generateRainbowColor = () => {
 const applyColor = (event) => {
   let grid = event.target;
   if (grid.style.background === "" && rainbowModeOn != true && colorModeOn) {
-    console.log("add new color");
+ //   console.log("add new color");
     grid.style.background = colorPicker.value;
     gridColorArr[Number(grid.id)] = rgbFormat(grid);
-    console.log(gridColorArr[Number(grid.id)]);
+   // console.log(gridColorArr[Number(grid.id)]);
   } else if (
     rainbowModeOn &&
     grid.style.background === "" &&
     colorModeOn != true
   ) {
-    console.log("add rainbow color");
+   // console.log("add rainbow color");
 
     grid.style.background = generateRainbowColor();
     gridColorArr[Number(grid.id)] = rgbFormat(grid);
