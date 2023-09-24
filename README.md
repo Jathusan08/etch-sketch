@@ -1,7 +1,7 @@
 # Project: Etch-a-Sketch
 
 
-[Live Demo:](https://jathusan08.github.io/etch-sketch/)
+[Live Demo](https://jathusan08.github.io/etch-sketch/)
 
 <img width="772" alt="image" src="https://github.com/Jathusan08/etch-sketch/assets/36281788/22b3e6b4-19e3-418b-a568-b5430245beee">
 
